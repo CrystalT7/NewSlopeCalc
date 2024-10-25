@@ -23,10 +23,13 @@ public class LinearEquationLogic {
         System.out.print("Enter coordinate 1: ");
         String cord1 = myScanner.nextLine();
 
-        int idx1 = cord1.indexOf("(" + ",");
-        String cordX = cord1.substring(1,2);
+        int idx1 = cord1.indexOf("(");
+        int idx2 = cord1.indexOf(",");
+        String cordX = cord1.substring(idx1 + 1, idx2);
         int x1 = Integer.parseInt(cordX);
-        String cordY = cord1.substring (4,5);
+        int idx3 = cord1.indexOf(" ");
+        int idx4 = cord1.indexOf(")");
+        String cordY = cord1.substring (idx3 + 1, idx4);
         int y1 = Integer.parseInt(cordY);
 
         System.out.println("Enter coordinate 2: ");
@@ -55,5 +58,14 @@ public class LinearEquationLogic {
             System.out.println("Thank you for using the slope calculator, goodbye!");
         }
 
+    }
+
+    private void parseInt(String coordinate){
+        int idx1 = coordinate.indexOf("(");
+        int idx2 = coordinate.indexOf(",");
+        String cordX = coordinate.substring(idx1 + 1, idx2);
+        int idx3 = coordinate.indexOf(" ");
+        int idx4 = coordinate.indexOf(")");
+        String cordY = coordinate.substring(idx3 + 1, idx4);
     }
 }
