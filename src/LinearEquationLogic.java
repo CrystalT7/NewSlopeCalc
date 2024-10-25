@@ -23,14 +23,7 @@ public class LinearEquationLogic {
         System.out.print("Enter coordinate 1: ");
         String cord1 = myScanner.nextLine();
 
-        int idx1 = cord1.indexOf("(");
-        int idx2 = cord1.indexOf(",");
-        String cordX = cord1.substring(idx1 + 1, idx2);
-        int x1 = Integer.parseInt(cordX);
-        int idx3 = cord1.indexOf(" ");
-        int idx4 = cord1.indexOf(")");
-        String cordY = cord1.substring (idx3 + 1, idx4);
-        int y1 = Integer.parseInt(cordY);
+        int x = parseInt(cord1);
 
         System.out.println("Enter coordinate 2: ");
         String cord2 = myScanner.nextLine();
@@ -39,7 +32,7 @@ public class LinearEquationLogic {
         String cordY2 = cord2.substring(4,5);
         int y2 = Integer.parseInt(cordY2);
 
-        coordinates = new LinearEquation(x1, y1, x2, y2);
+        //coordinates = new LinearEquation(x1, y1, x2, y2);
     }
 
     private void printData() {
@@ -60,12 +53,20 @@ public class LinearEquationLogic {
 
     }
 
-    private void parseInt(String coordinate){
+    private int parseIntForX(String coordinate){
         int idx1 = coordinate.indexOf("(");
         int idx2 = coordinate.indexOf(",");
         String cordX = coordinate.substring(idx1 + 1, idx2);
+        int x = Integer.parseInt(cordX);
+        return x;
+    }
+
+    private int parseIntForY(String coordinate){
         int idx3 = coordinate.indexOf(" ");
         int idx4 = coordinate.indexOf(")");
         String cordY = coordinate.substring(idx3 + 1, idx4);
+        int y = Integer.parseInt(cordY);
+        return y;
     }
 }
+
