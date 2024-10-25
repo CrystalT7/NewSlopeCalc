@@ -23,16 +23,16 @@ public class LinearEquationLogic {
         System.out.print("Enter coordinate 1: ");
         String cord1 = myScanner.nextLine();
 
-        int x = parseInt(cord1);
+        int x1 = parseIntForX(cord1);
+        int y1 = parseIntForY(cord1);
 
-        System.out.println("Enter coordinate 2: ");
+        System.out.print("Enter coordinate 2: ");
         String cord2 = myScanner.nextLine();
-        String cordX2 = cord2.substring(1,2);
-        int x2 = Integer.parseInt(cordX2);
-        String cordY2 = cord2.substring(4,5);
-        int y2 = Integer.parseInt(cordY2);
 
-        //coordinates = new LinearEquation(x1, y1, x2, y2);
+        int x2 = parseIntForX(cord2);
+        int y2 = parseIntForY(cord2);
+
+        coordinates = new LinearEquation(x1, y1, x2, y2);
     }
 
     private void printData() {
