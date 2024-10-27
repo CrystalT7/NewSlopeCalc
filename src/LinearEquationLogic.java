@@ -36,9 +36,10 @@ public class LinearEquationLogic {
     }
 
     private void printData() {
-        coordinates.lineInfo();
+        System.out.println();
+        System.out.println(coordinates.lineInfo());
         System.out.print("Enter a value for x: ");
-        int xVal = myScanner.nextInt();
+        double xVal = myScanner.nextInt();
         coordinates.coordinateForX(xVal);
         System.out.println("The point on the line is " + coordinates.coordinateForX(xVal));
         System.out.print("Would you like to enter another pair of coordinates? y/n: ");
