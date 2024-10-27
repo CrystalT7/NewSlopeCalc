@@ -72,12 +72,17 @@ public class LinearEquation {
     }
 
     public String lineInfo(){
-        String points = "The two poinst are: (" + x1 + ", " + y1 + ") and (" + x2 + ", " + y2 + ")\n";
+        String points = "The two points are: (" + x1 + ", " + y1 + ") and (" + x2 + ", " + y2 + ")\n";
         String equation = "The equation of the lne between these points is: " + equation() + "\n";
         String yInt = "The y-intercept of this line is: " + yIntercept() + "\n";
         String slope = "The slope of this line is: " + slope() + "\n";
         String distance = "The distance between these points is " + distance() + "\n";
-        return points + equation + yInt + slope + distance;
+        if(x1 == x2){
+            String equationOnVert = "The points are on a vertical line: " + equation() + "\n";
+            return equationOnVert;
+        } else {
+            return points + equation + yInt + slope + distance;
+        }
     }
 
     private double roundedToHundredth(double toRound){

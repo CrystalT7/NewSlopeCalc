@@ -39,9 +39,11 @@ public class LinearEquationLogic {
         System.out.println();
         System.out.println(coordinates.lineInfo());
         System.out.print("Enter a value for x: ");
-        double xVal = myScanner.nextInt();
+        double xVal = myScanner.nextDouble();
         coordinates.coordinateForX(xVal);
+        System.out.println();
         System.out.println("The point on the line is " + coordinates.coordinateForX(xVal));
+        System.out.println();
         System.out.print("Would you like to enter another pair of coordinates? y/n: ");
         myScanner.nextLine();
         String yOrN = myScanner.nextLine();
@@ -51,7 +53,6 @@ public class LinearEquationLogic {
         } else {
             System.out.println("Thank you for using the slope calculator, goodbye!");
         }
-
     }
 
     private int parseIntForX(String coordinate){
