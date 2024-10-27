@@ -55,16 +55,24 @@ public class LinearEquation {
             String equation = "x = " + x1;
             return equation;
         } else {
-            double yInt = yIntercept();
             int diffY = y2 - y1;
             int diffX = x2 - x1;
             String slope = diffY + "/" + diffX;
-            String equation = "y = " + slope + "x + " + yInt;
-            if (diffY%diffX == 0){
+            String equation = "y = " + slope + "x + " + yIntercept();
+            if (slope() == 1) {
+                String newEq = "y = x" + yIntercept();
+                return newEq;
+            }
+            if (slope() == -1){
+                String newEq = "y = -x" + yIntercept();
+                return newEq;
+            }
+            else if (diffY%diffX == 0){
                 int whole = diffY/diffX;
-                String wholeEquation = "y = " + whole + "x + " + yInt;
+                String wholeEquation = "y = " + whole + "x + " + yIntercept();
                 return wholeEquation;
-            } else {
+            }
+            else {
                 return equation;
             }
         }
