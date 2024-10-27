@@ -60,11 +60,18 @@ public class LinearEquation {
             String slope = diffY + "/" + diffX;
             String equation = "y = " + slope + "x + " + yIntercept();
             if (slope() == 1) {
-                String newEq = "y = x" + yIntercept();
+                String newEq = "y = x + " + yIntercept();
                 return newEq;
             }
             if (slope() == -1){
-                String newEq = "y = -x" + yIntercept();
+                String newEq = "y = -x + " + yIntercept();
+                return newEq;
+            }
+            else if (diffY < 0 || diffX < 0){
+                diffY *= -1;
+                diffX *= -1;
+                slope = diffY + "/" + diffX;
+                String newEq = "y = " + slope + "x + " + yIntercept();
                 return newEq;
             }
             else if (diffY%diffX == 0){
