@@ -60,7 +60,13 @@ public class LinearEquation {
             int diffX = x2 - x1;
             String slope = diffY + "/" + diffX;
             String equation = "y = " + slope + "x + " + yInt;
-            return equation;
+            if (diffY%diffX == 0){
+                int whole = diffY/diffX;
+                String wholeEquation = "y = " + whole + "x + " + yInt;
+                return wholeEquation;
+            } else {
+                return equation;
+            }
         }
     }
 
