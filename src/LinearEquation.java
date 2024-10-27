@@ -47,21 +47,31 @@ public class LinearEquation {
     }
 
     public String equation(){
+        if (y1 == x1 && x2 == y2){
+            return "y = x";
+        }
         if(y1==y2){
             String equation = "y = " + y1;
             return equation;
         }
-        if(x1==x2){
+        if(x1==x2) {
             String equation = "x = " + x1;
             return equation;
-        } else {
+        }  else {
             int diffY = y2 - y1;
             int diffX = x2 - x1;
             String slope = diffY + "/" + diffX;
-            String equation = "y = " + slope + "x + " + yIntercept();
+            String yInterceptStr;
+            if (yIntercept() >= 0){
+                yInterceptStr = " + " + yIntercept();
+            }
+            else {
+                yInterceptStr = "" + yIntercept();
+            }
+            String equation = "y = " + slope + "x" + yInterceptStr;
             if (yIntercept() == 0){
                 if (slope() == 0){
-                    String eq = "y = " + yIntercept()
+                    String eq = "y = " + yInterceptStr;
                     return eq;
                 } else {
                     String eq = "y = " + slope + "x";
@@ -69,29 +79,38 @@ public class LinearEquation {
                 }
             }
             if (slope() == 1) {
-                String newEq = "y = x + " + yIntercept();
+                String newEq = "y = x" + yInterceptStr;
                 return newEq;
             }
             if (slope() == -1){
-                String newEq = "y = -x + " + yIntercept();
+                String newEq = "y = -x " + yInterceptStr;
                 return newEq;
             }
-            else if (diffY < 0 || diffX < 0){
-                diffY *= -1;
-                diffX *= -1;
-                slope = diffY + "/" + diffX;
-                String newEq = "y = " + slope + "x + " + yIntercept();
-                return newEq;
+            else if (diffY < 0 || diffX < 0 ){
+                if (diffY < 0 && diffX < 0){
+                    diffY = Math.abs(diffY);
+                    diffX = Math.abs(diffX);
+                    slope = diffY + "/" + diffX;
+                    return "y = " + slope + "x" + yInterceptStr;
+                } else if (diffX < 0){
+                    diffX = Math.abs(diffX);
+                    diffY *= -1;
+                    slope = diffY + "/" + diffX;
+                    String eq = "y= " + slope + "x" + yInterceptStr;
+                    return eq;
+                }
             }
             else if (diffY%diffX == 0){
                 int whole = diffY/diffX;
-                String wholeEquation = "y = " + whole + "x + " + yIntercept();
+                String wholeEquation = "y = " + whole + "x" + yInterceptStr;
                 return wholeEquation;
             }
             else {
                 return equation;
             }
+
         }
+        return "";
     }
 
     public String coordinateForX(double x){
