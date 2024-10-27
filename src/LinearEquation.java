@@ -59,6 +59,15 @@ public class LinearEquation {
             int diffX = x2 - x1;
             String slope = diffY + "/" + diffX;
             String equation = "y = " + slope + "x + " + yIntercept();
+            if (yIntercept() == 0){
+                if (slope() == 0){
+                    String eq = "y = " + yIntercept()
+                    return eq;
+                } else {
+                    String eq = "y = " + slope + "x";
+                    return eq;
+                }
+            }
             if (slope() == 1) {
                 String newEq = "y = x + " + yIntercept();
                 return newEq;
