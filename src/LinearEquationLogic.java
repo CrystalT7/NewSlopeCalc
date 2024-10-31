@@ -38,14 +38,18 @@ public class LinearEquationLogic {
     private void printData() {
         System.out.println();
         System.out.println(coordinates.lineInfo());
-        System.out.print("Enter a value for x: ");
-        double xVal = myScanner.nextDouble();
-        coordinates.coordinateForX(xVal);
-        System.out.println();
-        System.out.println("The point on the line is " + coordinates.coordinateForX(xVal));
-        System.out.println();
+        if (!coordinates.undefined()){
+            System.out.print("Enter a value for x: ");
+            double xVal = myScanner.nextDouble();
+            coordinates.coordinateForX(xVal);
+            System.out.println();
+            System.out.println("The point on the line is " + coordinates.coordinateForX(xVal));
+            System.out.println();
+        }
         System.out.print("Would you like to enter another pair of coordinates? y/n: ");
-        myScanner.nextLine();
+        if (!coordinates.undefined()){
+            myScanner.nextLine();
+        }
         String yOrN = myScanner.nextLine();
         if (yOrN.equals ("y")){
             getCoordinateInfo();

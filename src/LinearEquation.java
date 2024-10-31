@@ -83,22 +83,15 @@ public class LinearEquation {
                 return newEq;
             }
             if (slope() == -1){
-                String newEq = "y = -x " + yInterceptStr;
+                String newEq = "y = -x" + yInterceptStr;
                 return newEq;
             }
-            else if (diffY < 0 || diffX < 0 ){
-                if (diffY < 0 && diffX < 0){
-                    diffY = Math.abs(diffY);
-                    diffX = Math.abs(diffX);
-                    slope = diffY + "/" + diffX;
-                    return "y = " + slope + "x" + yInterceptStr;
-                } else if (diffX < 0){
-                    diffX = Math.abs(diffX);
-                    diffY *= -1;
-                    slope = diffY + "/" + diffX;
-                    String eq = "y= " + slope + "x" + yInterceptStr;
-                    return eq;
-                }
+            else if (diffY < 0 || diffX < 0){
+                diffY *= -1;
+                diffX *= -1;
+                slope = diffY + "/" + diffX;
+                String newEq = "y = " + slope + "x" + yInterceptStr;
+                return newEq;
             }
             else if (diffY%diffX == 0){
                 int whole = diffY/diffX;
@@ -108,9 +101,7 @@ public class LinearEquation {
             else {
                 return equation;
             }
-
         }
-        return "";
     }
 
     public String coordinateForX(double x){
@@ -131,6 +122,14 @@ public class LinearEquation {
             return equationOnVert;
         } else {
             return points + equation + yInt + slope + distance;
+        }
+    }
+
+    public boolean undefined(){
+        if (x1 == x2){
+            return true;
+        } else {
+            return false;
         }
     }
 
